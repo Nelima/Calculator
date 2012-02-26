@@ -1,0 +1,40 @@
+<h1>Addition of two numbers</h1>
+
+<%= form_tag("add", :method => "post") do %>
+  <%= label_tag(:number1, "Number1:") %>
+  <%= text_field_tag :number1,  @number1 %>
+  <%= label_tag(:number2, "Number2:") %>
+  <%= text_field_tag :number2,  @number2  %>
+
+  <%= submit_tag("Add") %>
+<% end %>
+<%= form_tag("sub", :method => "post") do %>
+  <%= label_tag(:number1, "Number1:") %>
+  <%= text_field_tag :number1,  @number1 %>
+  <%= label_tag(:number2, "Number2:") %>
+  <%= text_field_tag :number2,  @number2  %>
+
+  <%= submit_tag("Sub") %>
+<% end %>
+
+<h1>Result : <%= @result %></h1>
+---------------------------------------------
+<%= form_tag(:action =>"add", :method => "post") do %>
+  <%= label_tag(:number1, "Number1:") %>
+  <%= text_field_tag :number1,  @number1 %>
+  <%= label_tag(:number2, "Number2:") %>
+  <%= text_field_tag :number2,  @number2  %>
+
+  <%= submit_tag("Add") %>
+<% end %>
+<%= form_tag("sub", :method => "post") do %>
+  
+  <%= submit_tag("Sub") %>
+<% end %>
+..................................
+def sub
+    @number1 = params['number1']
+    @number2 = params['number2']
+    @result = @number1.to_i - @number2.to_i
+    render :index
+  end

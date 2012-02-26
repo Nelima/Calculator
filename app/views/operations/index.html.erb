@@ -1,0 +1,13 @@
+<h1>Addition of two numbers</h1>
+
+<%= form_for :operation  do |f| %>
+<%= f.label :number1, 'Number1'%>:   
+<%= f.text_field :number1%><br />
+<%= f.label :number2, 'Number2'%>:   
+<%= f.text_field :number2%><br />
+<%end%>
+
+<%= form_tag(:action =>"add", :method => "post") do %>
+<%= submit_tag :add %>
+<% end %>
+<h1>Result : <%= @result %></h1>
